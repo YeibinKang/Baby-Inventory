@@ -1,3 +1,5 @@
+import InventoryDetailScreen from "@/screens/InventoryDetailScreen";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 
 import { DataTable, IconButton, MD3Colors } from 'react-native-paper';
@@ -5,6 +7,8 @@ import { DataTable, IconButton, MD3Colors } from 'react-native-paper';
 
 
 export default function InventoryList() {
+
+    const navigation = useNavigation();
 
     const [page, setPage] = useState(0);
     const [numberOfItemsPerPageList] = useState([10]);
@@ -39,7 +43,7 @@ export default function InventoryList() {
             </DataTable.Header>
 
             {inventories.slice(from, to).map((inventory) => (
-                <DataTable.Row key={inventory.key} >
+                <DataTable.Row key={inventory.id} >
                     <DataTable.Cell style={{ flex: 3 }}>{inventory.inventoryName}</DataTable.Cell>
                     <DataTable.Cell style={{ flex: 2 }}>{inventory.category}</DataTable.Cell>
                     <DataTable.Cell style={{ flex: 1 }}>{inventory.quantity}</DataTable.Cell>
@@ -47,7 +51,8 @@ export default function InventoryList() {
                     <IconButton
                         icon="chevron-right-circle"
                         size={20}
-                        onPress={() => console.log('Pressed')}
+                        onPress={() => navigation.navigate('Inventory', { screen: 'InventoryDetailScreen', params: { inventory: inventories[(inventory.id) - 1] } })}
+
                     />
                 </DataTable.Row>
             ))}
