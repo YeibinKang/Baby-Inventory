@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const ShoppingListTab = () => {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Text>Shopping List</Text>
     </View>
   );
 };
