@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { Tabs } from 'expo-router';
-import { SessionProvider, useSession } from './ctx/SessionProvider';
+import { SessionProvider} from './ctx/SessionProvider';
 import AuthCheck from './components/AuthCheck';
 const theme = {
   ...DefaultTheme,
