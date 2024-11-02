@@ -1,7 +1,8 @@
 import React from 'react';
-import { Redirect, Tabs } from 'expo-router';
+import { Redirect, Stack } from 'expo-router';
 import { Text } from 'react-native';
 import { useSession } from '../ctx/SessionProvider';
+import BottomNavigation from '../components/BottomNavigation'
 
 
 const AppLayout = () => {
@@ -16,12 +17,15 @@ const AppLayout = () => {
   }
 
   return (
-    <Tabs initialRouteName="Dashboard">
-      <Tabs.Screen name="Dashboard" options={{ headerShown: false }}/>
-      <Tabs.Screen name="Inventory" options={{ headerShown: false }}/>
-      <Tabs.Screen name="ShoppingList" options={{ headerShown: false }}/>
-      <Tabs.Screen name="UserSettings" options={{ headerShown: false }}/>
-    </Tabs>
+    <>
+      <Stack initialRouteName="Dashboard">
+        <Stack.Screen name="Dashboard" options={{ headerShown: false }}/>
+        <Stack.Screen name="Inventory" options={{ headerShown: false }}/>
+        <Stack.Screen name="ShoppingList" options={{ headerShown: false }}/>
+        <Stack.Screen name="UserSettings" options={{ headerShown: false }}/>
+      </Stack>
+      <BottomNavigation />
+    </>
   );
 };
 
