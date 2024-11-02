@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+    padding: '10vw',
   },
   title: {
     marginBottom: 20,
@@ -33,6 +33,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 16,
+  },
+  input: {
+    marginBottom: 16,
+    width: '80%',
+    maxWidth: 400,
+    height: 40,
   },
 });
 
@@ -69,7 +75,7 @@ const Login = () => {
         label="Email"
         value={email}
         onChangeText={setEmail}
-        style={{ marginBottom: 16 }}
+        style={styles.input}
         mode="outlined"
         keyboardType="email-address"
         autoCapitalize="none"
@@ -78,7 +84,7 @@ const Login = () => {
         label="Password"
         value={password}
         onChangeText={setPassword}
-        style={{ marginBottom: 16 }}
+        style={styles.input}
         mode="outlined"
         secureTextEntry
       />
