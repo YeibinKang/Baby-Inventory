@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
-import { TextInput, Button, ActivityIndicator } from 'react-native-paper';
+import { TextInput, ActivityIndicator } from 'react-native-paper';
 import { Link, useNavigation, router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSession } from '../ctx/SessionProvider'
+import { Button } from 'react-native-paper';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,21 +23,32 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     textAlign: 'center',
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  linkText: {
+    color: 'blue',
+  },
+  button: {
+    marginTop: 16,
+  },
 });
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { setIsLoggedIn, isLoggedIn } = useSession();
+  const { setIsLoggedIn, isLoggedIn, isLoading, setIsLoading} = useSession();
+
 
   const handleLogin = async () => {
-    setLoading(true);
+    setIsLoading(true);
     setError('');
     if (email && password) {
       console.log('Success')
-      setLoading(false);
+      setIsLoading(false);
       setIsLoggedIn(true);
       await AsyncStorage.setItem('isLoggedIn', 'true');
       console.log('User is Logged in! ',isLoggedIn)
@@ -44,7 +56,7 @@ const Login = () => {
 
     } else {
       setError('Invalid email or password');
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -71,20 +83,18 @@ const Login = () => {
         secureTextEntry
       />
       <Link href='/ForgotPassword'>Forgot Password</Link>
-      <Pressable mode="contained" onPress={handleLogin} disabled={loading}>
-        <Text>
-          {loading ? <ActivityIndicator color="white" /> : 'Login'}
-        </Text>
-      </Pressable>
-      <View style={{flexDirection:'row'}}>
-        <Text style={{ marginTop: 20 }}>Don't have an account? </Text>
-        <Link href='/Signup' asChild>
-            <Text>
-              Signup here
-            </Text>
+      <Button mode="contained" onPress={handleLogin} disabled={isLoading}>
+          {isLoading ? <ActivityIndicator color="white" /> : 'Login'}
+      </Button>
+      <View style={styles.row}>
+        <Text>Don't have an account? </Text>
+        <Link href='/Signup'>
+          <Text style={styles.linkText}>Signup here</Text>
         </Link>
       </View>
     </View>
+
+
   )
 
 }
