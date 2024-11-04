@@ -3,9 +3,13 @@ import { Redirect, Stack } from 'expo-router';
 import { Text, SafeAreaView } from 'react-native';
 import { useSession } from '../ctx/SessionProvider';
 import BottomNavigation from '../components/BottomNavigation';
+import { usePathname } from 'expo-router';
+
 
 const AppLayout = () => {
   const { isLoggedIn, isLoading } = useSession();
+
+  const pathname = usePathname();
 
   if (isLoading) {
     return <Text>Loading...</Text>;
@@ -15,6 +19,8 @@ const AppLayout = () => {
     return <Redirect href="/Login" />;
   }
 
+
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Stack initialRouteName="Dashboard">
@@ -23,7 +29,7 @@ const AppLayout = () => {
         <Stack.Screen name="ShoppingList" options={{ headerShown: false }} />
         <Stack.Screen name="UserSettings" options={{ headerShown: false }} />
       </Stack>
-      <BottomNavigation />
+      { ('/Inventory/ItemDetail' !== pathname) && <BottomNavigation />}
     </SafeAreaView>
   );
 };
