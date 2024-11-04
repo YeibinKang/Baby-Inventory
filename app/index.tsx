@@ -3,6 +3,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { SessionProvider} from './ctx/SessionProvider';
 import AuthCheck from './components/AuthCheck';
+
+
 const theme = {
   ...DefaultTheme,
   colors: {

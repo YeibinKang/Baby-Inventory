@@ -12,16 +12,17 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns":[
+    "assetBundlePatterns": [
       "**/*"
     ],
+    
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.babyinventory.babyinventory"
     },
     "android": {
       "android": {
-        "package":"com.babyinventory.babyinventory"
+        "package": "com.babyinventory.babyinventory"
       },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
@@ -34,7 +35,8 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
