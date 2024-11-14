@@ -1,11 +1,14 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 
+
 const InventoryLayout = () => {
   return (
+
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="ItemDetail" options={{ headerShown: false }} />
+      <Stack.Screen name="AddItem" options={{ headerShown: false }} />
     </Stack>
   );
 };
