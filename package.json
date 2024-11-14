@@ -17,6 +17,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-native-community/datetimepicker": "8.0.1",
     "@react-native-google-signin/google-signin": "^13.1.0",
     "@react-native-vector-icons/material-icons": "^0.0.1-alpha.34",
     "@react-navigation/bottom-tabs": "^6.6.1",
@@ -51,8 +52,7 @@
     "react-native-toggle-element": "^2.1.1",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.10",
-    "react-navigation": "^5.0.0",
-    "@react-native-community/datetimepicker": "8.0.1"
+    "react-navigation": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
