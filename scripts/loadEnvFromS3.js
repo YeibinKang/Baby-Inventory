@@ -3,10 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
+// Relative to cd
+dotenv.config({ path: '.env' });
 
-dotenv.config({ path: '../.env' });
-
-
+console.log(process.env.AWS_REGION,)
 // AWS SDK v3
 const client = new S3Client({ 
     region: process.env.AWS_REGION,
