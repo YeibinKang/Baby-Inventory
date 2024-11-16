@@ -17,6 +17,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-native-community/datetimepicker": "8.0.1",
     "@react-native-google-signin/google-signin": "^13.1.0",
     "@react-native-vector-icons/material-icons": "^0.0.1-alpha.34",
     "@react-navigation/bottom-tabs": "^6.6.1",
@@ -26,13 +27,13 @@
     "@rneui/themed": "^4.0.0-rc.8",
     "@supabase/supabase-js": "^2.46.1",
     "babel-plugin-module-resolver": "^5.0.2",
-    "expo": "~51.0.28",
+    "expo": "^51.0.39",
     "expo-asset": "~10.0.10",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.9",
     "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.23",
-    "expo-splash-screen": "~0.27.5",
+    "expo-router": "^3.5.24",
+    "expo-splash-screen": "^0.27.7",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
@@ -51,8 +52,7 @@
     "react-native-toggle-element": "^2.1.1",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.10",
-    "react-navigation": "^5.0.0",
-    "@react-native-community/datetimepicker": "8.0.1"
+    "react-navigation": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
