@@ -39,7 +39,7 @@ const fetchEnvFile = async () => {
 
         fs.writeFileSync(envFilePath, bodyContents);
 
-        console.log('Check S3 .env content:\n', bodyContents);
+        console.log('S3 .env content:\n', bodyContents);
 
         // Load the .env file
         dotenv.config({ path: envFilePath });

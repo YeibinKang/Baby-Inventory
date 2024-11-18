@@ -57,7 +57,7 @@ const InventoryTab = () => {
 
   return (
     <View>
-      <DataTable>
+      {/* <DataTable>
         <DataTable.Header>
           <DataTable.Title sortDirection='descending' style={{ flex: 2, maxWidth: 50, justifyContent: 'center' }}>Status</DataTable.Title>
           <DataTable.Title sortDirection={sortAscending ? 'ascending' : 'descending'}
@@ -107,7 +107,7 @@ const InventoryTab = () => {
           showFastPaginationControls
           selectPageDropdownLabel={'Rows per page'}
         />
-      </DataTable>
+      </DataTable> */}
 
       <Button onPress={pressAddItem} mode='contained' buttonColor='#8ACB88' style={{}}>Add item</Button>
     </View>
