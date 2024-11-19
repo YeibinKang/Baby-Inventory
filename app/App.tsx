@@ -2,9 +2,10 @@ import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { SessionProvider } from '@context/SessionProvider';
+
 import AuthCheck from '@components/AuthCheck';
 import { NavigationContainer } from '@react-navigation/native';
+import { SessionProvider } from './ctx/SessionProvider';
 
 const theme = {
   ...DefaultTheme,

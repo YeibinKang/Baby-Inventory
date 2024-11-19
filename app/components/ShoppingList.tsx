@@ -3,11 +3,13 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { Button } from 'react-native-paper';
 import ShoppingListItem from '@components/cards/ShoppingItemCard';
 import ShoppingListItemEditModal from '@components/modals/ShoppingListItemEditModal';
-import { useShoppingList } from '@context/ShoppingListProvider';
+//import { useShoppingList } from '@context/ShoppingListProvider';
+import { ShoppingListProvider } from 'app/ctx/ShoppingListProvider';
+
 
 
 const ShoppingListDetail = () => {
-  const {activeShoppingList, setActiveShoppingList, options} = useShoppingList();
+  const { activeShoppingList, setActiveShoppingList, options } = useShoppingList();
 
   const [editElement, setEditElement] = useState(null);
   const [viewType, setViewType] = useState(null);
