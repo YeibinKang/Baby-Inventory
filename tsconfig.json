@@ -4,6 +4,7 @@
     "strict": true,
     "baseUrl": ".", // Base path
     "paths": {
+      "@context/*": ["app/ctx/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["app/components/*"],
       "@screens/*": ["app/screens/*"],

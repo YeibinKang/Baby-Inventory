@@ -7,6 +7,7 @@ module.exports = function(api) {
         'module-resolver',
         {
           alias: {
+            '@context': './app/ctx',
             '@assets': './assets',
             '@components': './app/components',
             '@screens': './app/screens',
