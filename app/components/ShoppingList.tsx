@@ -87,12 +87,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     overflow: 'scroll',
+    width:'100%'
   },
   primaryButton: {
-    width: '80vw',
+    width: '100%',
   },
   shoppingListitemCard: {
-    width: '90vw',
+    width: '100%',
   },
   shoppingListCardContent: {
     flexDirection: 'row',

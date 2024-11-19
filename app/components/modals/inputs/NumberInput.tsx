@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { TextInput as PaperTextInput } from 'react-native-paper';
-import { TextInputMask } from 'react-native-masked-text';
+import { TextInput } from 'react-native-paper';
 
 const NumberInput = ({ label, value, onChangeText }) => {
   const [internalValue, setInternalValue] = useState(value);
 
-  
   const handleChange = (text) => {
-  
     const numericValue = text.replace(/[^0-9.]/g, '');
     
     if (numericValue.split('.').length <= 2) {
-      const formattedValue = parseFloat(numericValue).toFixed(2);
-      setInternalValue(formattedValue);
-      onChangeText(formattedValue);
+      setInternalValue(numericValue);
+      onChangeText(numericValue);
     }
   };
 
   const handleBlur = () => {
     const formattedValue = parseFloat(internalValue).toFixed(2);
-    onChangeText(formattedValue);
     setInternalValue(formattedValue);
+    onChangeText(formattedValue);
   };
 
   useEffect(() => {
@@ -31,16 +27,14 @@ const NumberInput = ({ label, value, onChangeText }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{label}</Text>
-      <TextInputMask
-        type="custom" 
+      <TextInput
+        mode="outlined"
         value={internalValue}
         onChangeText={handleChange}
         onBlur={handleBlur}
         keyboardType="decimal-pad"
         style={styles.input}
-        options={{
-          mask:"9999.99",
-        }}
+        label={label}
       />
     </View>
   );
@@ -57,10 +51,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 16,
-    borderWidth: 1,
     padding: 8,
-    borderRadius: 5,
-    borderColor: '#ccc',
   },
 });
 
