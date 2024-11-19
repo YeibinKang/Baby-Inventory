@@ -1,0 +1,13 @@
+api calls
+
+//For inventory item 
+    //read item by inventory item id : for item detail screen
+    //update by inventory item id : for item detail screen
+    //delete by inventory item id : for item detail screen
+
+    //create an inventory item : for inventory list screen
+
+
+
+
+//For user 
