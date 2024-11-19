@@ -3,6 +3,7 @@ module.exports = function(api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
+      ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       [
         'module:react-native-dotenv',
         {
@@ -26,7 +27,6 @@ module.exports = function(api) {
       ],
       ['@babel/plugin-proposal-class-properties', { loose: true }],
       ['@babel/plugin-transform-private-methods', { loose: true }],
-      ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
       '@babel/plugin-transform-runtime',
     ],
   };
