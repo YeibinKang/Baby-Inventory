@@ -3,8 +3,8 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { Button } from 'react-native-paper';
 import ShoppingListItem from '@components/cards/ShoppingItemCard';
 import ShoppingListItemEditModal from '@components/modals/ShoppingListItemEditModal';
-//import { useShoppingList } from '@context/ShoppingListProvider';
-import { ShoppingListProvider } from 'app/ctx/ShoppingListProvider';
+import { useShoppingList } from '@context/ShoppingListProvider';
+
 
 
 const ShoppingListDetail = () => {

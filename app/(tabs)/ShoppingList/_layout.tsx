@@ -1,7 +1,6 @@
 import React from 'react';
 import { Stack } from 'expo-router';
-//import { ShoppingListProvider } from '/context/ShoppingListProvider';
-import { ShoppingListProvider } from 'app/ctx/ShoppingListProvider';
+import { ShoppingListProvider } from '@context/ShoppingListProvider';
 
 
 const UserSettingsLayout = () => {
