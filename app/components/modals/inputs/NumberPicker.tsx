@@ -18,7 +18,7 @@ const NumberPicker = ({ label, onValueChange, options, value }) => {
   }, [value, options]);
 
   const handleValueChange = (itemIndex) => {
-    const newValue = parseFloat(options[itemIndex]).toFixed(2);
+    const newValue = parseFloat(options[itemIndex]);
     setSelectedIndex(itemIndex);
     onValueChange(newValue);
   };
@@ -38,9 +38,10 @@ const NumberPicker = ({ label, onValueChange, options, value }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection:'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    height:'50%'
   },
   label: {
     fontSize: 18,
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   picker: {
-    width: 300,
+    width: '100%',
     height: 150,
   },
 });

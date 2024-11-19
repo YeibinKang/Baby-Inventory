@@ -48,40 +48,42 @@ const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  shoppingListitemCard: {
-    width: '100%',
-    marginBottom: 10,
+const styles = StyleSheet.create({ 
+  shoppingListitemCard: { 
+    width: '100%', 
+    marginBottom: 10, 
     marginHorizontal: 15, 
-  },
-  shoppingListCardContent: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
+  }, 
+  shoppingListCardContent: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
     paddingVertical: 10, 
-  },
-  editableButton: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    margin: 0,
-    width: 'auto',
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  imageContainer: {
-    width: 60,
-    height: 60,
-    backgroundColor: 'gray',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  textContainer: {
+    flexWrap: 'wrap', 
+  }, 
+  editableButton: { 
+    paddingLeft: 0, 
+    paddingRight: 0, 
+    margin: 0, 
+    width: 'auto', 
+  }, 
+  row: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+  }, 
+  imageContainer: { 
+    width: '30%', 
+    aspectRatio: 1,
+    backgroundColor: 'gray', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    borderRadius: 5, 
+    marginRight: '10%'
+  }, 
+  textContainer: { 
     flex: 1,
-    justifyContent: 'center',
-  },
+    flexDirection:'column' ,
+    justifyContent: 'center', 
+    alignItems:'center'
+  }, 
 });
-
 export default ShoppingListItem;
