@@ -16,8 +16,8 @@ module.exports = function(api) {
         'module-resolver',
         {
           alias: {
-            '@assets': './assets',
             '@context': './app/ctx',
+            '@assets': './assets',
             '@components': './app/components',
             '@screens': './app/screens',
             '@stores': './app/stores',
