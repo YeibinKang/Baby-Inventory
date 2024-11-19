@@ -1,53 +1,49 @@
-const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
-const fs = require('fs');
+// This scripts updates local .env with S3 env by appending new variables and overwriting local variables
+
 const path = require('path');
-const dotenv = require('dotenv');
+const { 
+  parseEnvFile, 
+  fetchEnvFromS3, 
+  readLocalEnvFile, 
+  writeLocalEnvFile 
+} = require('./utils/s3Utils');
 
-// Relative to cd
-dotenv.config({ path: '.env' });
 
-console.log(process.env.AWS_REGION,)
-// AWS SDK v3
-const client = new S3Client({ 
-    region: process.env.AWS_REGION,
-    credentials: { 
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
-    }
-});
 
-const bucketName = 'baby-inventory';
-const objectKey = 'env'; 
+const updateLocalEnvFile = async () => {
+  try {
+    // Fetch the .env file content from S3
+    const s3EnvContent = await fetchEnvFromS3();
 
-const params = {
-    Bucket: bucketName,
-    Key: objectKey,
+    // Parse the S3 .env content
+    const s3EnvVars = parseEnvFile(s3EnvContent);
+
+    const localEnvFilePath = path.resolve(__dirname, '..','.env');
+
+    // Read the local .env file content
+    const localEnvContent = readLocalEnvFile(localEnvFilePath);
+
+    // Parse local .env content
+    const localEnvVars = parseEnvFile(localEnvContent);
+
+    // Merge S3 .env file with local .env file
+    Object.keys(s3EnvVars).forEach((key) => {
+      // Overwrite local .env 
+      localEnvVars[key] = s3EnvVars[key];
+    });
+
+    //updated .env content
+    const updatedEnvContent = Object.entries(localEnvVars)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('\n');
+
+    // Write updated .env to the local .env file
+    writeLocalEnvFile(localEnvFilePath, updatedEnvContent);
+    console.log('Successfully updated local .env from S3 env.');
+  } catch (err) {
+    console.error('Error fetching or updating .env file from S3:', err);
+  }
 };
 
-const fetchEnvFile = async () => {
-    try {
-        const command = new GetObjectCommand(params);
-        const data = await client.send(command);
 
-        const envFilePath = path.resolve(__dirname, '../test.env');
-        const bodyContents = await new Promise((resolve, reject) => {
-            const chunks = [];
-            data.Body.on('data', (chunk) => chunks.push(chunk));
-            data.Body.on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
-            data.Body.on('error', reject);
-        });
-
-        fs.writeFileSync(envFilePath, bodyContents);
-
-        console.log('S3 .env content:\n', bodyContents);
-
-        // Load the .env file
-        dotenv.config({ path: envFilePath });
-        console.log('Environment variables loaded from S3:');
-
-    } catch (err) {
-        console.error('Error fetching .env file from S3:', err);
-    }
-};
-
-fetchEnvFile();
+updateLocalEnvFile();
