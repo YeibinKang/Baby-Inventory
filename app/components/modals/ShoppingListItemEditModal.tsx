@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Modal, Portal, Button, IconButton } from 'react-native-paper';
 import CustomTextInput from '@components/modals/inputs/CustomTextInput';
 import NumberInput from '@components/modals/inputs/NumberInput';
 import OptionsPicker from '@components/modals/inputs/OptionsPicker';
 import NumberPicker from '@components/modals/inputs/NumberPicker';
-
-
 
 const getModalView = (view, editableValue, setEditableValue, options, element) => {
     switch (view) {
@@ -49,11 +47,11 @@ const getModalView = (view, editableValue, setEditableValue, options, element) =
     }
 };
 
-const ShoppingListItemEditModal = ({ view, openModal, hideModal, options, element, value, onSave}) => {
+const ShoppingListItemEditModal = ({ view, openModal, hideModal, options, element, value, onSave }) => {
     const [editableValue, setEditableValue] = useState(value || null);
 
     useEffect(() => {
-        setEditableValue(value);  
+        setEditableValue(value);
         console.log('Updated editableValue:', value);
     }, [element, openModal]);
 
@@ -70,7 +68,9 @@ const ShoppingListItemEditModal = ({ view, openModal, hideModal, options, elemen
         <Portal>
             <Modal visible={openModal} onDismiss={hideModal} contentContainerStyle={styles.modalContent}>
                 <IconButton icon='close-thick' onPress={hideModal} style={styles.cancelButton} />
-                {getModalView(view, editableValue, setEditableValue, options, element)}
+
+                    {getModalView(view, editableValue, setEditableValue, options, element)}
+
                 <Button onPress={handleSave} style={styles.saveButton}>Update</Button>
             </Modal>
         </Portal>
@@ -79,19 +79,27 @@ const ShoppingListItemEditModal = ({ view, openModal, hideModal, options, elemen
 
 const styles = StyleSheet.create({
     modalContent: {
-        flexDirection: 'column',
+        flexDirection:'column',
+        justifyContent:'space-between',
         backgroundColor: 'white',
         padding: 20,
         marginHorizontal: 20,
         borderRadius: 8,
     },
+    modalBody: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
     saveButton: {
-        marginTop: 10,
         backgroundColor: '#ffe69d',
+        marginTop: 20,
+        width: '100%',
+        alignItems: 'center',
     },
     cancelButton: {
         alignSelf: 'flex-end',
-        marginTop: 10,
+        marginBottom: 10,
     },
 });
 

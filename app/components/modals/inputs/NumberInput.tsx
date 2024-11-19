@@ -34,7 +34,6 @@ const NumberInput = ({ label, value, onChangeText }) => {
         onBlur={handleBlur}
         keyboardType="decimal-pad"
         style={styles.input}
-        label={label}
       />
     </View>
   );

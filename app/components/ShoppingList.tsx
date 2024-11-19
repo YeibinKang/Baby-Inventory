@@ -7,7 +7,6 @@ import ShoppingListItemEditModal from '@components/modals/ShoppingListItemEditMo
 import { ShoppingListProvider } from 'app/ctx/ShoppingListProvider';
 
 
-
 const ShoppingListDetail = () => {
   const { activeShoppingList, setActiveShoppingList, options } = useShoppingList();
 
@@ -17,8 +16,6 @@ const ShoppingListDetail = () => {
   const [modalKey, setModalKey] = useState(null);
   const [modalValue, setModalValue] = useState(null);
   const [currentUid, setCurrentUid] = useState(null);
-
-
 
   const handleEditModal = (uid, viewType, label, key) => {
     console.log(viewType, label, key, uid)
@@ -67,6 +64,7 @@ const ShoppingListDetail = () => {
           />
         )}
         keyExtractor={(item) => item.uid}
+        contentContainerStyle={styles.listContainer}
       />
       {openModal && (
         <ShoppingListItemEditModal
@@ -87,19 +85,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
-    overflow: 'scroll',
-    width:'100%'
+    width: '80%',
   },
   primaryButton: {
     width: '100%',
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  listContainer: {
+    flexGrow: 1,
+    paddingBottom: 20,
+    paddingTop: 20,
   },
   shoppingListitemCard: {
     width: '100%',
+    marginBottom: 10,
+    marginHorizontal: 15,
   },
   shoppingListCardContent: {
     flexDirection: 'row',
-    gap: '1rem',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
 });
 
