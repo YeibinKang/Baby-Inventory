@@ -69,7 +69,7 @@ const ShoppingListItemEditModal = ({ view, openModal, hideModal, options, elemen
             <Modal visible={openModal} onDismiss={hideModal} contentContainerStyle={styles.modalContent}>
                 <IconButton icon='close-thick' onPress={hideModal} style={styles.cancelButton} />
 
-                {getModalView(view, editableValue, setEditableValue, options, element)}
+                    {getModalView(view, editableValue, setEditableValue, options, element)}
 
                 <Button onPress={handleSave} style={styles.saveButton}>Update</Button>
             </Modal>
