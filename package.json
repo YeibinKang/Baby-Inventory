@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "update-local-env": "node ./scripts/loadEnvFromS3.js",
+    "update-s3-env": "node ./scripts/updateS3Env.js",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -15,6 +17,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.693.0",
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-native-community/datetimepicker": "8.0.1",
