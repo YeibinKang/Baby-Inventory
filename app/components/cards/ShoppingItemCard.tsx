@@ -33,6 +33,7 @@ const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
           <ReanimatedSwipeable
             friction={2}
             renderRightActions={renderRightActions}
+            enableTrackpadTwoFingerGesture
             rightThreshold={40} // Adjust swipe threshold for triggering the actions
             containerStyle={styles.swipeableContainer}
           >
