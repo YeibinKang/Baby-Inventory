@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Card, Checkbox, IconButton } from 'react-native-paper';
-import ReanimatedSwipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
+import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import Reanimated, { useAnimatedStyle } from 'react-native-reanimated';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
   const [checked, setChecked] = useState(false);
@@ -30,7 +31,7 @@ const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
 
   return (
     <Card style={styles.shoppingListitemCard}>
-          <ReanimatedSwipeable
+          <Swipeable
             friction={2}
             renderRightActions={renderRightActions}
             enableTrackpadTwoFingerGesture
@@ -38,9 +39,10 @@ const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
             containerStyle={styles.swipeableContainer}
           >
             <Card.Content style={styles.shoppingListCardContent}>
-              <Checkbox
+              <Checkbox.Android
                 status={checked ? 'checked' : 'unchecked'}
                 onPress={() => setChecked(!checked)}
+                style={styles.checkbox}
               />
               <View style={styles.imageContainer}>
                 <Text>Image</Text>
@@ -84,7 +86,7 @@ const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
                 </View>
               </View>
             </Card.Content>
-        </ReanimatedSwipeable>
+        </Swipeable>
       </Card>
 
   );
@@ -141,6 +143,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#9c2828',
     flexDirection: 'row',
   },
+  checkbox:{
+    color:'gray'
+  }
 });
 
 export default ShoppingListItem;

@@ -1,29 +1,17 @@
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { SessionProvider} from './ctx/SessionProvider';
-import AuthCheck from './components/AuthCheck';
-
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'tomato',
-    secondary: 'yellow',
-  },
-};
+import AuthCheck from '@components/AuthCheck';
+// import { NavigationContainer } from '@react-navigation/native';
+import { SessionProvider } from './ctx/SessionProvider';
 
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <PaperProvider theme={theme}>
-        <SessionProvider >
-          <AuthCheck/>
-        </SessionProvider>
-      </PaperProvider>
-    </SafeAreaProvider>
+        <SafeAreaProvider>
+            <SessionProvider>
+                <AuthCheck />
+            </SessionProvider>
+        </SafeAreaProvider>
   );
 };
 
