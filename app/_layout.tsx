@@ -1,28 +1,27 @@
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { SessionProvider} from './ctx/SessionProvider';
 import { Slot} from 'expo-router';
-
+import { MD3LightTheme as DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: 'tomato',
-    secondary: 'yellow',
+    primary: '#db0f0f',
+    secondary: '#134bcd',
   },
 };
 
 const Root = () => {
 
   return (
-    <SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <PaperProvider theme={theme}>
-        <SessionProvider>
-          <Slot />
-        </SessionProvider>
+          <SessionProvider>
+            <Slot />
+          </SessionProvider>
       </PaperProvider>
-    </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
 
