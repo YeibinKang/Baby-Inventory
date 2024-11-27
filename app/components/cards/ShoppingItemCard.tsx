@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Button, Card, Checkbox, IconButton } from 'react-native-paper';
 import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import Reanimated, { useAnimatedStyle } from 'react-native-reanimated';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ShoppingListItem = ({ item, onSwipeComplete, onEdit }) => {
   const [checked, setChecked] = useState(false);
@@ -101,7 +100,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginHorizontal: 15,
     borderRadius: 10,
-    overflow: 'hidden',
   },
   shoppingListCardContent: {
     flexDirection: 'row',
@@ -109,7 +107,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     flexWrap: 'wrap',
     borderRadius: 10,
-    overflow: 'hidden'
   },
   editableButton: {
     paddingLeft: 0,

@@ -17,6 +17,19 @@ const ShoppingListDetail = () => {
   const [modalValue, setModalValue] = useState(null);
   const [currentUid, setCurrentUid] = useState(null);
 
+
+  const [updateItems, setUpdateItems] = useState([])
+  const handleCheckboxToggle = (item, isChecked) => {
+    setUpdateItems((prevItems) => {
+      if (isChecked) {
+        return [...prevItems, item];
+      } else {
+        return prevItems.filter((prevItem) => prevItem.uid !== item.uid);
+      }
+    });
+  };
+
+  
   const handleEditModal = (uid, viewType, label, key) => {
     console.log(viewType, label, key, uid)
     setEditElement(label);
@@ -44,6 +57,7 @@ const ShoppingListDetail = () => {
     console.log(updatedValue)
   };
 
+
   return (
     <View style={styles.container}>
       <Button
@@ -61,6 +75,7 @@ const ShoppingListDetail = () => {
             item={item}
             onSwipeComplete={() => handleDelete(item.uid)}
             onEdit={handleEditModal}
+            onCheckboxToggle={handleCheckboxToggle}
           />
         )}
         keyExtractor={(item) => item.uid}
